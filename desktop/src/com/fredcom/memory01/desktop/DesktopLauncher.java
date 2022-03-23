@@ -8,5 +8,16 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new Main(), config);
+
+
+		config.width = 800;
+		config.height = 600;
+		config.resizable = false;
+		config.title = "LES SPRITES !!";
+		config.vSyncEnabled = true;
+
+
+
+
 	}
 }
