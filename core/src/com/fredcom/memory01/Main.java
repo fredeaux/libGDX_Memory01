@@ -12,8 +12,9 @@ public class Main extends ApplicationAdapter {
 	ShapeRenderer sr;
 	Assets assets;
 	int second = 0;
-	float delta;
+	public static float delta;
 	float deltaCompte;
+
 	
 	@Override
 	public void create () {
@@ -30,6 +31,22 @@ public class Main extends ApplicationAdapter {
 
 	@Override
 	public void render () {
+
+		//Update:
+		delta = Gdx.graphics.getDeltaTime();
+		deltaCompte += delta;
+		if(deltaCompte > 1)
+		{
+			second++;
+			deltaCompte = 0;
+			System.out.println("Seconde: " + second);
+		}
+
+
+
+
+
+		//Draw:
 		ScreenUtils.clear(0, 0, 0, 1);
 		batch.begin();
 		batch.setColor(1,1,1,0.3f);
@@ -41,14 +58,8 @@ public class Main extends ApplicationAdapter {
 		batch.end();
 
 		drawLines();
-		delta = Gdx.graphics.getDeltaTime();
-		deltaCompte += delta;
-		if(deltaCompte > 1)
-		{
-			second++;
-			deltaCompte = 0;
-			System.out.println("Seconde: " + second);
-		}
+
+
 
 
 
