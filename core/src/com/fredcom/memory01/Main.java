@@ -28,9 +28,12 @@ public class Main extends ApplicationAdapter {
 	public void render () {
 		ScreenUtils.clear(0, 0, 0, 1);
 		batch.begin();
-		batch.setColor(1,1,1,0.7f);
+		batch.setColor(1,1,1,0.3f);
 		batch.draw(Assets.backGroundTexture, 0, 0);
-		batch.setColor(1,1,1,1);
+		batch.setColor(1,1,1,0.7f);
+		batch.draw(Assets.returnedCardsTextureArrayList.get(0), 0, 500);
+		batch.draw(Assets.returnedCardsTextureArrayList.get(1), 100, 500);
+		batch.draw(Assets.returnedCardsTextureArrayList.get(2), 200, 500);
 		batch.end();
 
 		drawLines();
