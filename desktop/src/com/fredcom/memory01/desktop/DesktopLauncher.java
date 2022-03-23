@@ -15,6 +15,7 @@ public class DesktopLauncher {
 		config.resizable = false;
 		config.title = "LES SPRITES !!";
 		config.vSyncEnabled = true;
+		config.backgroundFPS = 60;
 
 
 

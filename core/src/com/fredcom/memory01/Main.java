@@ -1,6 +1,7 @@
 package com.fredcom.memory01;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -10,6 +11,9 @@ public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
 	ShapeRenderer sr;
 	Assets assets;
+	int second = 0;
+	float delta;
+	float deltaCompte;
 	
 	@Override
 	public void create () {
@@ -37,6 +41,16 @@ public class Main extends ApplicationAdapter {
 		batch.end();
 
 		drawLines();
+		delta = Gdx.graphics.getDeltaTime();
+		deltaCompte += delta;
+		if(deltaCompte > 1)
+		{
+			second++;
+			deltaCompte = 0;
+			System.out.println("Seconde: " + second);
+		}
+
+
 
 	}
 	
