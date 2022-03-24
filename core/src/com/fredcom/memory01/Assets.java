@@ -54,7 +54,7 @@ public class Assets {
 
     private void rCardsFilesLoad()
     {
-        for(int i=0; i<48; i++)
+        for(int i = 0; i<48; i++)
         {
             if(i < 9)
             {

@@ -13,7 +13,7 @@ public class DesktopLauncher {
 		config.width = 800;
 		config.height = 600;
 		config.resizable = false;
-		config.title = "LES SPRITES !!";
+		config.title = "RANDOM !!";
 		config.vSyncEnabled = true;
 		config.backgroundFPS = 60;
 

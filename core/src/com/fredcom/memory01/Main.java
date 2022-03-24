@@ -2,6 +2,7 @@ package com.fredcom.memory01;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -55,6 +56,12 @@ public class Main extends ApplicationAdapter {
 		}
 
 
+		if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
+		{
+			start();
+		}
+
+
 
 
 
@@ -91,6 +98,7 @@ public class Main extends ApplicationAdapter {
 
 
 		int drawCard = 0;
+		listBoolCardsReturn.clear();
 
 		for(int i = 0; i < 48; i++)
 		{
@@ -138,7 +146,7 @@ public class Main extends ApplicationAdapter {
 
 	private void cardReturn()
 	{
-		System.out.println("List card return: " + listNbCardsReturn.size());
+		//Choix des cases et cartes retournées à présenter au démarrage du jeu
 		int i = 0;
 
 		for(int l = 0; l < 505; l += 100)
@@ -148,7 +156,7 @@ public class Main extends ApplicationAdapter {
 
 				if(listNbCardsReturn.size() < Assets.returnedCardsTextureArrayList.size())
 				{
-					listNbCardsReturn.add(random.nextInt(48));
+					listNbCardsReturn.add(i);
 				}
 
 				if(listBoolCardsReturn.get(i))
