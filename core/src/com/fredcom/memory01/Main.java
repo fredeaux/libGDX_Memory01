@@ -2,10 +2,12 @@ package com.fredcom.memory01;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
@@ -14,6 +16,13 @@ public class Main extends ApplicationAdapter {
 	int second = 0;
 	public static float delta;
 	float deltaCompte;
+	Random random;
+	int nbRandom;
+	boolean startDrawCards = false;
+	ArrayList<Integer> listNbCardsReturn = new ArrayList<>();
+	ArrayList<Boolean> listBoolCardsReturn = new ArrayList<>();
+	int nbCardsPlayStart = 20;
+
 
 	
 	@Override
@@ -24,6 +33,10 @@ public class Main extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
 		assets = new Assets();
+		this.random = new Random();
+		start();
+
+
 
 
 
@@ -39,8 +52,9 @@ public class Main extends ApplicationAdapter {
 		{
 			second++;
 			deltaCompte = 0;
-			System.out.println("Seconde: " + second);
 		}
+
+
 
 
 
@@ -52,9 +66,9 @@ public class Main extends ApplicationAdapter {
 		batch.setColor(1,1,1,0.3f);
 		batch.draw(Assets.backGroundTexture, 0, 0);
 		batch.setColor(1,1,1,0.7f);
-		batch.draw(Assets.returnedCardsTextureArrayList.get(0), 0, 500);
-		batch.draw(Assets.returnedCardsTextureArrayList.get(1), 100, 500);
-		batch.draw(Assets.returnedCardsTextureArrayList.get(2), 200, 500);
+
+		cardReturn();
+
 		batch.end();
 
 		drawLines();
@@ -69,6 +83,27 @@ public class Main extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		Assets.am.dispose();
+
+	}
+
+	private void start()
+	{
+
+
+		int drawCard = 0;
+
+		for(int i = 0; i < 48; i++)
+		{
+			if(random.nextInt(101) > 50 && drawCard < nbCardsPlayStart)
+			{
+				listBoolCardsReturn.add(true);
+				drawCard++;
+			}
+			else
+			{
+				listBoolCardsReturn.add(false);
+			}
+		}
 
 	}
 
@@ -89,6 +124,42 @@ public class Main extends ApplicationAdapter {
 		sr.line(600,0,600,600);
 		sr.line(700,0,700,600);
 		sr.end();
+	}
+
+
+	private void random()
+	{
+
+		this.nbRandom = random.nextInt(48);
+
+
+
+	}
+
+	private void cardReturn()
+	{
+		System.out.println("List card return: " + listNbCardsReturn.size());
+		int i = 0;
+
+		for(int l = 0; l < 505; l += 100)
+		{
+			for(int c = 0; c < 707; c += 100)
+			{
+
+				if(listNbCardsReturn.size() < Assets.returnedCardsTextureArrayList.size())
+				{
+					listNbCardsReturn.add(random.nextInt(48));
+				}
+
+				if(listBoolCardsReturn.get(i))
+				{
+					batch.draw(Assets.returnedCardsTextureArrayList.get(listNbCardsReturn.get(i)), c, l);
+				}
+
+
+				i++;
+			}
+		}
 	}
 }
 
