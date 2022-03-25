@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
+import jdk.internal.org.jline.utils.Display;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -22,7 +23,9 @@ public class Main extends ApplicationAdapter {
 	boolean startDrawCards = false;
 	ArrayList<Integer> listNbCardsReturn = new ArrayList<>();
 	ArrayList<Boolean> listBoolCardsReturn = new ArrayList<>();
-	int nbCardsPlayStart = 20;
+	int nbCardsPlayStart = 0;
+	int width;
+	int height;
 
 
 	
@@ -30,7 +33,8 @@ public class Main extends ApplicationAdapter {
 	public void create () {
 
 
-
+		width = Gdx.app.getGraphics().getWidth();
+		height = Gdx.app.getGraphics().getHeight();
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
 		assets = new Assets();
@@ -60,6 +64,9 @@ public class Main extends ApplicationAdapter {
 		{
 			start();
 		}
+
+
+		System.out.println("mouseX: " + Gdx.input.getX() + "  mouseY: " + (-(Gdx.input.getY() - height )));
 
 
 
@@ -96,6 +103,7 @@ public class Main extends ApplicationAdapter {
 	private void start()
 	{
 
+		nbCardsPlayStart = 18; //random.nextInt(47) + 1;
 
 		int drawCard = 0;
 		listBoolCardsReturn.clear();
