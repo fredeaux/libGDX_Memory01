@@ -13,6 +13,7 @@ public class Assets {
     public static ArrayList<Texture> returnedCardsTextureArrayList = new ArrayList<>();
 
 
+
     String background = "bg.png";
     ArrayList<String> rCardsAL = new ArrayList<>();
 
@@ -54,16 +55,33 @@ public class Assets {
 
     private void rCardsFilesLoad()
     {
+
+        int jj = 41;
+        int hh = 41;
+
+
         for(int i = 0; i<48; i++)
         {
-            if(i < 9)
+            if(jj == hh + 8)
             {
-                rCardsAL.add("cartes/ct_0" + (i+1) + ".jpg");
+
+                hh = hh - 8;
+                jj = jj - 16;
+
+            }
+
+            if(jj < 10)
+            {
+                rCardsAL.add("cartes/bg_0" + (jj) + ".png");
             }
             else
             {
-                rCardsAL.add("cartes/ct_" + (i+1) +  ".jpg");
+                rCardsAL.add("cartes/bg_" + (jj) +  ".png");
             }
+            System.out.println(" JJ: " + jj);
+            jj++;
+
+
 
         }
 
