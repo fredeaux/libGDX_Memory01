@@ -28,6 +28,7 @@ public class Main extends ApplicationAdapter {
 	int height;
 
 
+
 	
 	@Override
 	public void create () {
@@ -38,6 +39,7 @@ public class Main extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
 		assets = new Assets();
+
 		this.random = new Random();
 		start();
 
@@ -66,7 +68,7 @@ public class Main extends ApplicationAdapter {
 		}
 
 
-		System.out.println("mouseX: " + Gdx.input.getX() + "  mouseY: " + (-(Gdx.input.getY() - height )));
+		//System.out.println("mouseX: " + Gdx.input.getX() + "  mouseY: " + (-(Gdx.input.getY() - height )));
 
 
 
@@ -107,6 +109,8 @@ public class Main extends ApplicationAdapter {
 
 		int drawCard = 0;
 		listBoolCardsReturn.clear();
+
+
 
 		for(int i = 0; i < 48; i++)
 		{

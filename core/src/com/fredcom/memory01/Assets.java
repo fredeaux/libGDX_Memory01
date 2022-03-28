@@ -78,7 +78,7 @@ public class Assets {
             {
                 rCardsAL.add("cartes/bg_" + (jj) +  ".png");
             }
-            System.out.println(" JJ: " + jj);
+            //System.out.println(" JJ: " + jj);
             jj++;
 
 
